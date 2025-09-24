@@ -16,7 +16,7 @@ const handleNewsletterSubmit = async (e) => {
     const res = await axios.post(`${apiUrl}/footer`, { email });
     toast.success(res.data.message);
   } catch (error) {
-    toast.error(error.response.data.message);
+    error
   };
   e.target.reset();
   };
