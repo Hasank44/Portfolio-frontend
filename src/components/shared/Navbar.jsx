@@ -55,12 +55,19 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navClick = () => {
+    window.location.reload(true);
+  };
+
   return (
     <nav className={`w-full h-auto font-serif top-0 z-50 sticky text-gray-200 bg-gray-900`}>
       <div className='flex items-center justify-between h-12'>
-        <div className='flex items-center gap-2'>
-          <img src={logo.image} alt="logo" className='w-8 h-8 rounded-full' />
-          <h1 className='bg-gradient-to-r text-xl from-cyan-400 to-blue-300 bg-clip-text text-transparent'>{logo.name || 'Hasan' }</h1>
+        <div
+          onClick={navClick}
+          className='flex items-center gap-2'>
+          <img src={logo.image} alt="logo" className='w-8 h-8 rounded-full cursor-pointer' />
+          <h1 className='bg-gradient-to-r text-xl from-cyan-400 to-blue-300 bg-clip-text text-transparent cursor-pointer'>{logo.name || 'Hasan' }</h1>
         </div>
         <ToastContainer />
         {/* Desktop menu */}
