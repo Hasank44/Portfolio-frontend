@@ -46,7 +46,7 @@ const Achievements = () => {
   };
 
   return (
-    <section id="achievements" className="w-full py-10 h-auto text-white flex flex-col items-center">
+    <section id="achievement" className="w-full py-10 h-auto text-white flex flex-col items-center">
       <motion.div
         className="text-center w-full h-auto"
         initial="hidden"

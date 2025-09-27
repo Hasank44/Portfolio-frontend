@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react'
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from 'axios';
 import { Message } from './MessageContext';
 
@@ -23,6 +23,7 @@ useEffect(() => {
   };
   fetchData();
 }, [apiUrl, toast]);
+  
   // home
   const [home, setHome] = useState({});
 useEffect(() => {
@@ -70,7 +71,7 @@ useEffect(() => {
   useEffect(() => {
   const fetchData = async () => {
   try {
-    const res = await axios.get(`${apiUrl}/skill`);
+    const res = await axios.get(`${apiUrl}/skill/enable`);
     setSkill(res.data.result);
   } catch (error) {
     toast.error(error.response.data.message);
@@ -84,7 +85,7 @@ useEffect(() => {
   useEffect(() => {
   const fetchData = async () => {
   try {
-    const res = await axios.get(`${apiUrl}/project`);
+    const res = await axios.get(`${apiUrl}/project/enable`);
     setProject(res.data.result);
   } catch (error) {
     toast.error(error.response.data.message)
@@ -98,7 +99,7 @@ useEffect(() => {
   useEffect(() => {
   const fetchData = async () => {
   try {
-    const res = await axios.get(`${apiUrl}/service`);
+    const res = await axios.get(`${apiUrl}/service/enable`);
     setService(res.data.result); 
   } catch (error) {
     toast.error(error.response.data.message)

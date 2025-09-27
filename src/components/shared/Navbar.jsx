@@ -4,6 +4,7 @@ import { GrNotes } from "react-icons/gr";
 import { FaToolbox } from "react-icons/fa";
 import { HiPhoto } from "react-icons/hi2";
 import { TbSend2 } from "react-icons/tb";
+import { GiAchievement } from "react-icons/gi";
 import AnchorLink from 'react-anchor-link-smooth-scroll';
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
@@ -18,18 +19,17 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const style = { transition: 'all 0.4s ease-in-out' };
-  const image = logo.image;
 
   const navitems = [
     { title: 'Home', icon: <MdOutlineHome />, to: '#home' },
     { title: 'About', icon: <MdPerson />, to: '#about' },
     { title: 'Qualification', icon: <FaToolbox />, to: '#qualification' },
     { title: 'Skills', icon: <GrNotes />, to: '#skills' },
-    { title: 'Projects', icon: <HiPhoto />, to: '#projects' },
     { title: 'Service', icon: <TbSend2 />, to: '#service' },
+    { title: 'Projects', icon: <HiPhoto />, to: '#projects' },
+    { title: 'Achievement', icon: <GiAchievement />, to: '#achievement' },
     { title: 'Contact-me', icon: <TbSend2 />, to: '#contact' },
   ];
-console.log(window.innerHeight)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,10 +43,10 @@ console.log(window.innerHeight)
         setActiveLink('#qualification');
       } else if (scrollPos >= 1750 && scrollPos < 2450) {
         setActiveLink('#skills');
-      } else if (scrollPos >= 2450 && scrollPos < 3120) {
-        setActiveLink('#projects');
-      } else if (scrollPos >= 3120 && scrollPos < 4200) {
+      } else if (scrollPos >= 2450 && scrollPos < 3050) {
         setActiveLink('#service');
+      } else if (scrollPos >= 3050 && scrollPos < 4200) {
+        setActiveLink('#projects');
       } else {
         setActiveLink('#contact');
       }
@@ -57,14 +57,14 @@ console.log(window.innerHeight)
   }, []);
   return (
     <nav className={`w-full h-auto font-serif top-0 z-50 sticky text-gray-200 bg-gray-900`}>
-      <div className='flex items-center justify-between h-12 px-4'>
+      <div className='flex items-center justify-between h-12'>
         <div className='flex items-center gap-2'>
-          <img src={image} alt="logo" className='w-8 h-8 rounded-full' />
-          <h1 className='bg-gradient-to-r text-xl from-cyan-400 to-blue-300 bg-clip-text text-transparent'>Hasan</h1>
+          <img src={logo.image} alt="logo" className='w-8 h-8 rounded-full' />
+          <h1 className='bg-gradient-to-r text-xl from-cyan-400 to-blue-300 bg-clip-text text-transparent'>{logo.name || 'Hasan' }</h1>
         </div>
         <ToastContainer />
         {/* Desktop menu */}
-        <ul className='md:gap-3 hidden md:flex relative'>
+        <ul className='lg:gap-1 hidden lg:flex relative'>
           {navitems.map((item) => (
             <li key={item.title} className='relative'>
               <motion.div
@@ -93,7 +93,7 @@ console.log(window.innerHeight)
         </ul>
 
         {/* Mobile toggle */}
-        <div className='space-x-3 md:hidden'>
+        <div className='space-x-3 lg:hidden'>
           <button onClick={toggleMenu} className='text-3xl'>
             <MdMenuOpen />
           </button>
@@ -102,7 +102,7 @@ console.log(window.innerHeight)
 
       {/* Mobile menu */}
       <div
-        className={`absolute top-0 w-full md:hidden transition-all duration-500 ease-in-out ${
+        className={`absolute top-0 w-full lg:hidden transition-all duration-500 ease-in-out ${
           isOpen ? 'block opacity-100 translate-y-0 bg-gray-950' : 'hidden -translate-y-full'
         }`}
         style={style}
