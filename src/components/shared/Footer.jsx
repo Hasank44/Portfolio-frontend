@@ -24,17 +24,30 @@ const handleNewsletterSubmit = async (e) => {
 const quiekLinks =[
   { title:'Home', to:'#home' },
   { title:'About me', to:'#about' },
-  { title:'Skills', to:'/i' },
-  { title:'Projects', to:'/i' },
-  { title:'Contact-me', to:'/i' },
+  { title:'Skills', to:'/#skills' },
+  { title:'Projects', to:'/#projects' },
+  { title:'Contact-me', to:'/#contact' },
 ]
 const supports =[
-  { title:'About me', to:'/'},
-  { title:'FAQ', to:'/i'},
-  { title:'Privacy Policy', to:'/i'},
-  { title:'Contact-me', to:'/i'},
-  { title:'24/7h Online', to:'/i'},
+  { title:'About me', to:'https://www.facebook.com/aeroshift.me/'},
+  { title:'FAQ', to:'/#'},
+  { title:'Privacy Policy', to:'/#'},
+  { title:'Contact-me', to:'https://t.me/Hasank44'},
+  { title:'24/7h Online', to:'https://wa.me/qr/SLX4WSXMZ2IEO1'},
 ]
+
+ const startDate = new Date(2024, 1, 20);
+const now = new Date();
+
+let years = now.getFullYear() - startDate.getFullYear();
+let months = now.getMonth() - startDate.getMonth();
+
+if (months < 0) {
+  years--;
+  months += 12;
+}
+
+console.log(`Experience: ${years} years and ${months} months`);
 
   return (
     <div className='bg-gray-900 py-3'>
@@ -42,7 +55,7 @@ const supports =[
           <div>
             <h2 className="text-gray-200 mb-3 text-lg">About Me</h2>
             <p className="text-gray-400 text-sm max-w-xs mx-auto sm:mx-0">
-              I am Professional Web & Apk Developer. I have an 5 Years Of experience.
+              I am Professional Web & Apk Developer. I have an {years} Years and {months} months Of experience.
             </p>
             <div className="flex justify-center sm:justify-start gap-4 mt-4 text-gray-400">
               <a href="https://www.facebook.com/mdhasan.sjb" aria-label="Visit our Facebook page">
@@ -66,8 +79,10 @@ const supports =[
               {
                 quiekLinks.map( link =>(
                   <li key={link.title}>
-                    <Link 
-                    >{link.title}</Link>
+                    <a
+                      href={link.to}
+                    >{link.title}
+                    </a>
                   </li>
                 ))
               }
@@ -81,7 +96,9 @@ const supports =[
                 supports.map( support =>(
                   <li key={support.title}>
                     <Link
-                    >{support.title}</Link>
+                      to={support.to}
+                    >{support.title}
+                    </Link>
                   </li>
                 ))
               }

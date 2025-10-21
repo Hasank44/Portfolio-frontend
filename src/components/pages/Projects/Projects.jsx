@@ -10,7 +10,7 @@ const Projects = () => {
   const { project } = useContext(Data);
   const projects = project || [];
   //
-  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+  const displayedProjects = showAll ? projects : projects.slice(0, 6);
   const containerVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: {

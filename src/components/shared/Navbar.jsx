@@ -47,6 +47,8 @@ const Navbar = () => {
         setActiveLink('#service');
       } else if (scrollPos >= 3050 && scrollPos < 4200) {
         setActiveLink('#projects');
+      } else if (scrollPos >= 4200 && scrollPos < 4700) {
+        setActiveLink('#achievement');
       } else {
         setActiveLink('#contact');
       }
