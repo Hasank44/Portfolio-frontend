@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { MdMenuOpen, MdClose, MdOutlineHome, MdPerson } from "react-icons/md";
 import { GrNotes } from "react-icons/gr";
 import { FaToolbox } from "react-icons/fa";
@@ -30,33 +30,6 @@ const Navbar = () => {
     { title: 'Achievement', icon: <GiAchievement />, to: '#achievement' },
     { title: 'Contact-me', icon: <TbSend2 />, to: '#contact' },
   ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPos = window.scrollY;
-
-      if (scrollPos < 660) {
-        setActiveLink('#home');
-      } else if (scrollPos >= 660 && scrollPos < 1130) {
-        setActiveLink('#about');
-      } else if (scrollPos >= 1130 && scrollPos < 1750) {
-        setActiveLink('#qualification');
-      } else if (scrollPos >= 1750 && scrollPos < 2450) {
-        setActiveLink('#skills');
-      } else if (scrollPos >= 2450 && scrollPos < 3050) {
-        setActiveLink('#service');
-      } else if (scrollPos >= 3050 && scrollPos < 4200) {
-        setActiveLink('#projects');
-      } else if (scrollPos >= 4200 && scrollPos < 4700) {
-        setActiveLink('#achievement');
-      } else {
-        setActiveLink('#contact');
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const navClick = () => {
     window.location.reload(true);
